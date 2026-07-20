@@ -1,0 +1,5544 @@
+﻿
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="记录技术、思考和分享">
+      
+      
+        <meta name="author" content="code_xu">
+      
+      
+        <link rel="canonical" href="https://github.com/NullMrxu/noi-cpp/%E5%85%A5%E9%97%A8%E7%AE%97%E6%B3%95/01%20%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97%E4%B9%8B%E9%9B%86%E7%BB%93%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%80%9D%E6%83%B3/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../02%20%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97%E4%B9%8B%E6%8E%92%E5%BA%8F%E4%BB%8E%E7%8E%A9%E8%BD%AC%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95%E5%BC%80%E5%A7%8B/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>01 算法系列之集结基础算法思想 - 小林编程C++</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#c" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="小林编程C++" class="md-header__button md-logo" aria-label="小林编程C++" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            小林编程C++
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              01 算法系列之集结基础算法思想
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换到深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换到浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../about/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  关于
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../projects/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  项目
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../blog/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  博客
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  语法基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  入门算法
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  数据结构
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E6%A0%91/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  树
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  动态规划
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E7%AE%97%E6%B3%95%E8%BF%9B%E9%98%B6/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  算法进阶
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E5%9B%BE/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  图
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E6%95%B0%E8%AE%BA/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  数论
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="小林编程C++" class="md-nav__button md-logo" aria-label="小林编程C++" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    小林编程C++
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../about/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    关于
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/story/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    我的故事
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    技能清单
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    项目
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../blog/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    博客
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    博客
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    归档
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    归档
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blog/archive/2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    分类
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    分类
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blog/category/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    技术分享
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blog/category/%E9%9A%8F%E7%AC%94/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随笔
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    语法基础
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    语法基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/01%20C%2B%2B%20%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%E7%9A%84%E5%BA%95%E5%B1%82%E9%80%BB%E8%BE%91/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 C++ 基本结构的底层逻辑
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/02%20C%2B%2B%20%E6%95%B0%E6%8D%AE%E6%98%AF%E4%B8%BB%E8%A7%92/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 C++ 数据是主角
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/03%20C%2B%2B%20%E5%8F%98%E9%87%8F%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%92%8C%E4%BD%9C%E7%94%A8%E5%9F%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 C++ 变量的生命周期和作用域
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/04%20C%2B%2B%20%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 C++ 算术运算符
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/05%20C%2B%2B%20%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84%E4%B9%8B%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%B2%94%E8%B7%AF%E5%8F%A3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 C++ 分支结构之程序的岔路口
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/06%20C%2B%2B%20%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84%E4%B9%8B%E5%8F%8D%E5%A4%8D%E7%9A%84%E5%8A%9B%E9%87%8F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 C++ 循环结构之反复的力量
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/07%20C%2B%2B%20%E6%8C%87%E9%92%88%E6%89%80%E6%8C%87%E4%B9%8B%E5%A4%84/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 C++ 指针所指之处
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/08%20C%2B%2B%20%E8%A7%A3%E6%9E%84%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 C++ 解构函数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/09%20C%2B%2B%20%E7%BB%93%E6%9E%84%E4%BD%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 C++ 结构体
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/10%20C%2B%2B%20IO%E6%B5%81_%E6%95%B0%E6%8D%AE%E7%9A%84%E6%97%85%E8%A1%8C%E4%B9%8B%E8%B7%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 C++ IO流_数据的旅行之路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/11%20C%2B%2B%20%E5%88%9D%E8%AF%86%E5%87%BD%E6%95%B0%E6%A8%A1%E6%9D%BF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11 C++ 初识函数模板
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    入门算法
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    入门算法
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 算法系列之集结基础算法思想
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 算法系列之集结基础算法思想
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 前言
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 常见算法思想
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 常见算法思想">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 穷举算法思想
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 试探算法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 递推算法思想
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 递推算法思想">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.1 顺推算法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.2 逆推算法
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 递归算法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 分治思想
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 贪心算法思想
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02%20%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97%E4%B9%8B%E6%8E%92%E5%BA%8F%E4%BB%8E%E7%8E%A9%E8%BD%AC%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95%E5%BC%80%E5%A7%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 算法系列之排序从玩转冒泡算法开始
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03%20%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97%E4%B9%8B%E4%BB%8E%E5%B8%8C%E5%B0%94%E3%80%81%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%AD%E7%9A%84%E5%88%86%E6%B2%BB%E5%93%B2%E5%AD%A6%E8%81%8A%E8%B5%B7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 算法系列之从希尔、归并排序算法中的分治哲学聊起
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04%20%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97%E4%B9%8B%E7%BB%86%E8%81%8A%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%A6%82%E4%BD%95%E5%B7%A7%E7%94%A8%E8%AE%A1%E6%95%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 算法系列之细聊计数排序算法如何巧用计数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05%20%E7%AE%97%E6%B3%95%E4%B8%BB%E9%A2%98%E7%B3%BB%E5%88%97%E4%B9%8B%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%E7%9A%84%E8%B4%AA%E5%BF%83%E4%B9%8B%E6%9C%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 算法主题系列之贪心算法的贪心之术
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06%20%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97%E4%B9%8B%E8%A7%A3%E6%9E%90%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%E4%B8%AD%E4%BA%BA%E6%96%87%E5%93%B2%E5%AD%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 算法系列之解析回溯算法中人文哲学
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07%20%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%E6%B1%82%E8%A7%A30-1%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E6%97%B6%E7%9A%84%E5%89%AA%E6%9E%9D%E6%96%B9%E6%A1%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 回溯算法求解0-1背包问题时的剪枝方案
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08%20%E4%B8%8D%E6%90%9C%E7%B4%A2%EF%BC%8C%E6%97%A0%E9%97%AE%E9%A2%98%E3%80%82%E5%86%97%E4%BD%99%E3%80%81%E4%B8%8A%E4%B8%8B%E7%95%8C%E5%89%AA%E6%9E%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 不搜索，无问题。冗余、上下界剪枝
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09%20%E7%AE%97%E6%B3%95%E4%B8%BB%E9%A2%98%E7%B3%BB%E5%88%97%E4%B9%8B%E8%AE%BA%E9%80%92%E5%BD%92%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%E4%B8%8E%E5%8E%9F%E5%A7%8B%E7%A9%B7%E4%B8%BE%E7%AE%97%E6%B3%95%E7%9A%84%E4%B8%80%E8%87%B4%E6%80%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 算法主题系列之论递归回溯算法与原始穷举算法的一致性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10%20%E5%9F%BA%E4%BA%8E%E9%93%BE%E6%8E%A5%E8%A1%A8%E7%9A%84%E6%97%A0%E5%90%91%E5%9B%BE%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E6%90%9C%E7%B4%A2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 基于链接表的无向图最短路径搜索
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11%20%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97%E4%B9%8B%E8%B7%9F%E9%9A%8F%E6%BB%91%E5%8A%A8%E6%8C%87%E9%92%88%E5%BC%80%E7%96%86%E6%8B%93%E5%9C%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11 算法系列之跟随滑动指针开疆拓土
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12%20%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97%E4%B9%8B%E8%BF%B7%E5%AE%AB%E9%97%AE%E9%A2%98%E4%B8%AD%E7%9A%84%E2%80%9C%E8%A7%81%E5%B1%B1%E4%B8%8D%E6%98%AF%E5%B1%B1%E2%80%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12 算法系列之迷宫问题中的“见山不是山”
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13%20%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97%E4%B9%8B%E9%AB%98%E7%B2%BE%E5%BA%A6%E6%95%B0%E5%80%BC%E7%9A%84%E5%8A%A0%E3%80%81%E5%87%8F%E3%80%81%E4%B9%98%E3%80%81%E9%99%A4%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13 算法系列之高精度数值的加、减、乘、除算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据结构
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数据结构
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/01%20%E6%95%B0%E7%BB%84/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 数组
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/02%20%E7%BB%86%E8%81%8A%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 细聊字符串
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/03%20%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%8E%E7%9F%A9%E9%98%B5%E8%BF%90%E7%AE%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 二维数组与矩阵运算
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/04%20STL%20%E6%A6%82%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 STL 概述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/05%20%E4%BB%8E%20STL%20%E4%B8%AD%E7%9A%84%E9%98%9F%E5%88%97%E5%BC%80%E5%A7%8B%E8%AF%B4%E8%B5%B7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 从 STL 中的队列开始说起
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/06%20%E5%8D%95%E9%93%BE%E8%A1%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 单链表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/07%20%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 双向链表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/08%20%E6%A0%88%E5%92%8C%E5%85%B8%E5%9E%8B%E7%9A%84%E8%BF%B7%E5%AE%AB%E9%97%AE%E9%A2%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 栈和典型的迷宫问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/09%20%E4%BD%BF%E7%94%A8%E6%A0%88%E6%B1%82%E8%A7%A3%E4%B8%AD%E7%BC%80%E3%80%81%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E5%80%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 使用栈求解中缀、后缀表达式的值
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/10%20%E7%BA%BF%E6%80%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%B3%BB%E5%88%97%E4%B9%8B%E4%BD%8E%E8%B0%83%E8%80%8C%E5%BC%BA%E5%A4%A7%E7%9A%84%E5%8D%95%E8%B0%83%E6%A0%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 线性数据结构系列之低调而强大的单调栈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/11%20%E5%88%9D%E8%AF%86%E6%A0%91/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11 初识树
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/12%20%E4%BA%8C%E5%8F%89%E6%A0%91%EF%BC%88%E6%95%B0%E7%BB%84%E3%80%81%E9%93%BE%E8%A1%A8%E5%AD%98%E5%82%A8%E7%9A%84%E5%AE%9E%E7%8E%B0%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12 二叉树（数组、链表存储的实现）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/13%20%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%EF%BC%88%E9%80%92%E5%BD%92%E5%92%8C%E9%9D%9E%E9%80%92%E5%BD%92%E9%81%8D%E5%8E%86%E3%80%81%E5%88%A0%E9%99%A4%E3%80%81%E6%8F%92%E5%85%A5%E2%80%A6%E2%80%A6%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13 二叉排序树（递归和非递归遍历、删除、插入……）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/14%20%E6%BC%AB%E8%B0%88%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14 漫谈哈夫曼树
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../%E6%A0%91/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    树
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    树
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%A0%91/01%20%E4%B8%8D%E7%9F%A5%E6%A0%91%E7%B3%BB%E5%88%97%E4%B9%8B%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%A0%91/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 不知树系列之表达式树
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%A0%91/02%20%E4%B8%8D%E7%9F%A5%E6%A0%91%E7%B3%BB%E5%88%97%E4%B9%8B%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E5%A0%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 不知树系列之二叉排序堆
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%A0%91/03%20%E6%A0%91%E7%9A%84%E9%87%8D%E5%BF%83%E5%92%8C%E7%9B%B4%E5%BE%84/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 树的重心和直径
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%A0%91/04%20%E6%A0%91%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97%E4%B9%8B%E7%AD%89%E4%BB%B7%E7%B1%BB%E7%9A%84%E7%89%B9%E6%80%A7%E5%8F%8A%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 树进阶系列之等价类的特性及实现方案
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%A0%91/05%20%E6%A0%91%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97%E4%B9%8B%E7%AC%9B%E5%8D%A1%E5%B0%94%E6%A0%91%E7%9A%84%E4%B8%A4%E9%9D%A2%E6%80%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 树进阶系列之笛卡尔树的两面性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%A0%91/06%20%E6%A0%91%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97%E4%B9%8B%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91AVL%E7%9A%84%E8%87%AA%E5%B9%B3%E8%A1%A1%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 树进阶系列之平衡二叉查找树AVL的自平衡算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%A0%91/07%20DFS%E5%BA%8F%E5%92%8C%E6%AC%A7%E6%8B%89%E5%BA%8F%E7%9A%84%E9%99%8D%E7%BB%B4%E6%89%93%E5%87%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 DFS序和欧拉序的降维打击
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%A0%91/08%20%E7%AE%97%E6%B3%95%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97%E4%B9%8B%E5%80%8D%E5%A2%9E%E7%AE%97%E6%B3%95%20ST%20%E8%A1%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 算法进阶系列之倍增算法 ST 表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%A0%91/09%20%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%E5%80%8D%E5%A2%9E%E7%AE%97%E6%B3%95%E6%B1%82%E8%A7%A3%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88%EF%BC%88LCA%EF%BC%89%E7%9A%84%E7%BB%86%E6%9E%9D%E6%9C%AB%E8%8A%82/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 深度剖析倍增算法求解最近公共祖先（LCA）的细枝末节
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%A0%91/10%20%E7%AE%97%E6%B3%95%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97%E4%B9%8B%E5%80%8D%E5%A2%9E%E7%AE%97%E6%B3%95%E8%A7%A3%E5%86%B3%E6%B1%82%E5%B9%82%E8%BF%90%E7%AE%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 算法进阶系列之倍增算法解决求幂运算
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%A0%91/11%20%E6%A0%91%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97%E4%B9%8B%E6%8E%A2%E8%AE%A8%E6%B7%B1%E5%BA%A6%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95%E6%9F%A5%E6%89%BE%E5%9F%BA%E7%8E%AF%E6%A0%91%E4%B8%AD%E7%8E%AF%E7%9A%84%E7%BB%86%E6%9E%9D%E6%9C%AB%E8%8A%82/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11 树进阶系列之探讨深度搜索算法查找基环树中环的细枝末节
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%A0%91/11%20%E6%A0%91%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97%E4%B9%8B%E7%BB%86%E8%81%8A%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E7%9A%84%E7%82%B9%E7%9D%9B%E4%B9%8B%E5%A4%84/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11 树进阶系列之细聊树状数组的点睛之处
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%A0%91/12%20%E6%A0%91%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97%E4%B9%8B%E6%B7%B1%E5%85%A5%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%92%8C%E5%AE%83%E7%9A%84%E5%BB%B6%E8%BF%9F%E6%9B%B4%E6%96%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12 树进阶系列之深入线段树和它的延迟更新
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%A0%91/13%20%E6%A0%91%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97%E4%B9%8B%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90%E5%AD%97%E5%85%B8%EF%BC%88trie%EF%BC%89%E6%A0%91/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13 树进阶系列之深度剖析字典（trie）树
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    动态规划
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    动态规划
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/01%20%E5%88%9D%E8%AF%86%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%97%E6%B3%95%E6%80%9D%E6%83%B3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 初识动态规划算法思想
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/02%20%E6%B7%B1%E5%85%A5%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%97%E6%B3%95%E6%80%9D%E6%83%B3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 深入动态规划算法思想
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/03%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%BB%8F%E5%85%B8%E6%A1%88%E4%BE%8B%E8%A7%A3%E6%9E%90%E4%B9%8B%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97%EF%BC%88LCS%EF%BC%89_%E7%AA%A5%E6%8E%A2%E9%80%92%E5%BD%92%E5%92%8C%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E4%B8%80%E8%87%B4%E6%80%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 动态规划经典案例解析之最长公共子序列（LCS）_窥探递归和动态规划的一致性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/04%20%E4%BD%BF%E7%94%A8%E9%80%92%E5%BD%92%E3%80%81%E5%9B%9E%E6%BA%AF%E3%80%81%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E9%A2%98%E5%A4%9A%E8%A7%A3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 使用递归、回溯、动态规划算法实现一题多解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/05%20%E7%AE%97%E6%B3%95%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97%E4%B9%8B%E8%A7%A3%E6%9E%90%E6%A0%91%E5%9E%8B%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E6%80%9D%E6%83%B3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 算法进阶系列之解析树型动态规划思想
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/06%20%E7%AE%97%E6%B3%95%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97%E4%B9%8B%E8%81%8A%E8%81%8A%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E4%B8%A4%E6%8A%8A%E5%88%B7%E5%AD%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 算法进阶系列之聊聊动态规划的两把刷子
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/07%20%E7%AE%97%E6%B3%95%E4%B8%BB%E9%A2%98%E7%B3%BB%E5%88%97%E4%B9%8B%E9%9B%86%E7%BB%930-1%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%9A%84%E6%89%80%E6%9C%89%E6%B1%82%E8%A7%A3%E6%96%B9%E6%A1%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 算法主题系列之集结0-1背包问题的所有求解方案
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/08%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%BB%8F%E5%85%B8%E6%A1%88%E4%BE%8B%E8%A7%A3%E6%9E%90%E4%B9%8B%E5%90%88%E5%B9%B6%E7%9F%B3%E5%AD%90/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 动态规划经典案例解析之合并石子
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/09%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%BB%8F%E5%85%B8%E8%AF%95%E9%A2%98%E8%A7%A3%E6%9E%90%E4%B9%8B%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D%E7%B3%BB%E5%88%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 动态规划经典试题解析之打家劫舍系列
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../%E7%AE%97%E6%B3%95%E8%BF%9B%E9%98%B6/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    算法进阶
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    算法进阶
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E8%BF%9B%E9%98%B6/C%2B%2B%20%E5%85%AB%E6%95%B0%E7%A0%81%E9%97%AE%E9%A2%98%E7%90%86%E8%A7%A3%20IDA%20%E7%AE%97%E6%B3%95%E5%8E%9F%E5%88%99%EF%BC%9A%E5%8F%8A%E6%97%B6%E6%AD%A2%E6%8D%9F%EF%BC%8C%E7%BC%98%E5%B0%BD%E5%8D%B3%E6%95%A3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ 八数码问题理解 IDA 算法原则：及时止损，缘尽即散
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E8%BF%9B%E9%98%B6/C%2B%2B%20%E5%93%88%E5%B8%8C%E8%A1%A8%E6%9F%A5%E8%AF%A2_%E8%BF%9B%E5%85%A5%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0%E7%BB%93%E7%95%8C%E7%9A%84%E4%B8%96%E7%95%8C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ 哈希表查询_进入哈希函数结界的世界
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E8%BF%9B%E9%98%B6/C%2B%2B%20%E5%8F%8C%E5%90%91%E5%B9%BF%E5%BA%A6%E6%90%9C%E7%B4%A2%EF%BC%8C%E5%9A%AF%E5%9A%AF%EF%BC%81%E4%B8%8D%E5%B0%B1%E6%98%AF%E5%8F%8C%E6%8C%87%E9%92%88%E7%90%86%E5%BF%B5%E5%90%97%EF%BC%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ 双向广度搜索，嚯嚯！不就是双指针理念吗？
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E8%BF%9B%E9%98%B6/C%2B%2B%20%E7%AE%97%E6%B3%95%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97%E4%B9%8B%E4%BB%8E%20Brute%20Force%20%E5%88%B0%20KMP%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ 算法进阶系列之从 Brute Force 到 KMP 字符串匹配算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E8%BF%9B%E9%98%B6/C%2B%2B%20%E7%89%B9%E6%AE%8A%E7%9F%A9%E9%98%B5%E7%9A%84%E5%8E%8B%E7%BC%A9%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ 特殊矩阵的压缩算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E8%BF%9B%E9%98%B6/C%2B%2B%20%E5%9C%86%E5%91%A8%E7%8E%87%E7%9A%84%E5%87%A0%E7%A7%8D%E6%B1%82%E8%A7%A3%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++ 圆周率的几种求解方法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95%E8%BF%9B%E9%98%B6/C%2B%2B%E5%90%AF%E5%8F%91%E5%BC%8F%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95%EF%BC%88A%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++启发式搜索算法（A）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../%E5%9B%BE/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_11" id="__nav_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    图
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%9B%BE/01%20%E5%9B%BE%E7%B3%BB%E5%88%97%E4%B9%8B%E5%9F%BA%E4%BA%8E%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E5%AE%9E%E7%8E%B0%E5%B9%BF%E5%BA%A6%E3%80%81%E6%B7%B1%E5%BA%A6%E6%90%9C%E7%B4%A2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 图系列之基于邻接矩阵实现广度、深度搜索
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%9B%BE/02%20%E5%9B%BE%E8%AE%BA%E4%B9%8BFloyd%E7%AE%97%E6%B3%95%E6%B1%82%E8%A7%A3%E6%AC%A1%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E7%9A%84%E6%84%9F%E6%82%9F%EF%BC%8C%E4%B8%80%E5%88%87%E9%83%BD%E6%98%AF%E8%84%B1%E5%A3%B3%E5%90%8E%E6%89%BE%E6%9C%80%E5%80%BC%E8%80%8C%E5%B7%B2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 图论之Floyd算法求解次最短路径的感悟，一切都是脱壳后找最值而已
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%9B%BE/03%20%E5%9B%BE%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97%E4%B9%8B%20Bellman-Ford%20%E5%92%8C%20Dijkstra%20%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E6%B1%82%E8%A7%A3%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 图进阶系列之 Bellman-Ford 和 Dijkstra 最短路径求解算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%9B%BE/04%20Bellman%20Ford%20%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E6%B1%82%E8%A7%A3%E7%AE%97%E6%B3%95%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 Bellman Ford 最短路径求解算法的两种实现方案
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%9B%BE/05%20Dijkstra%20%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E6%B1%82%E8%A7%A3%E7%AE%97%E6%B3%95%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 Dijkstra 最短路径求解算法的两种实现方案
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%9B%BE/06%20%E5%9B%BE%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97%E4%B9%8B%20kruskal%20%E5%92%8C%20Prim%20%E7%AE%97%E6%B3%95_%E5%9B%BE%E5%90%91%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%9A%84%E5%8D%8E%E4%B8%BD%E8%BD%AC%E8%BA%AB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 图进阶系列之 kruskal 和 Prim 算法_图向最小生成树的华丽转身
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%9B%BE/07%20Prim%E5%92%8C%20Kruskal%20%E6%B1%82%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 Prim和 Kruskal 求最小生成树算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%9B%BE/08%20%E5%9B%BE%E8%AE%BA%E4%B9%8B%E6%AC%A1%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 图论之次最小生成树
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%9B%BE/09%20%E5%9B%BE%E7%B3%BB%E5%88%97%E4%B9%8B%E6%9C%89%E5%90%91%E6%97%A0%E7%8E%AF%E5%9B%BE%E7%9A%84%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 图系列之有向无环图的拓扑排序算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%9B%BE/10%20DFS%E5%BA%8F%E4%B8%8E%E5%89%B2%E7%82%B9%E3%80%81%E5%89%B2%E8%BE%B9%EF%BC%8C%E6%AC%A7%E6%8B%89%E5%BA%8F%E4%B8%8ELCA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 DFS序与割点、割边，欧拉序与LCA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%9B%BE/11%20%E5%9B%BE%E8%AE%BA%E7%AE%97%E6%B3%95%E4%B9%8B%E6%AC%A7%E6%8B%89%E8%B7%AF%E5%BE%84%E3%80%81%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF%E7%AE%97%E6%B3%95%EF%BC%88%E4%B8%80%E7%AC%94%E7%94%BB%E5%AE%8C%E7%AE%97%E6%B3%95%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11 图论算法之欧拉路径、欧拉回路算法（一笔画完算法）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%9B%BE/12%20%E5%9B%BE%E8%AE%BA%E4%B9%8B%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%9B%BE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12 图论之强连通图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%9B%BE/13%20%E5%9B%BE%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97%E4%B9%8B%E5%89%96%E6%9E%90%E4%BA%8C%E5%88%86%E5%9B%BE%E7%9A%84%E6%9F%93%E8%89%B2%E7%AE%97%E6%B3%95%E5%92%8C%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13 图进阶系列之剖析二分图的染色算法和匈牙利算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%9B%BE/14%20%E5%9B%BE%E8%AE%BA%E4%B9%8B%E5%B8%B8%E8%A7%84%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E7%AE%97%E6%B3%95%E7%9A%84%E8%8A%B1%E5%BC%8F%E7%8E%A9%E6%B3%95%EF%BC%88Floyd%E3%80%81Bellman%E3%80%81SPFA%E3%80%81Dijkstra%E7%AE%97%E6%B3%95%E5%90%88%E9%9B%86%EF%BC%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14 图论之常规最短路径算法的花式玩法（Floyd、Bellman、SPFA、Dijkstra算法合集）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../%E6%95%B0%E8%AE%BA/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数论
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_12" id="__nav_12_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数论
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E8%AE%BA/01%20%E6%95%B0%E5%AD%A6%E4%B8%8E%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97%E4%B9%8B%E5%88%9D%E7%AD%89%E6%95%B0%E8%AE%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 数学与算法系列之初等数论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E8%AE%BA/02%20%E5%88%9D%E7%AD%89%E6%95%B0%E8%AE%BA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 初等数论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E8%AE%BA/03%20%E7%A6%BB%E6%95%A3%E5%8C%96%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 离散化算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E8%AE%BA/04%20%E7%A6%BB%E6%95%A3%E4%B8%8E%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6%E4%B9%8B%E5%A4%9A%E9%87%8D%E9%9B%86%E5%90%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 离散与组合数学之多重集合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E8%AE%BA/05%20%E6%95%B0%E5%AD%A6%E4%B8%8E%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97%E4%B9%8B%E6%8E%92%E5%88%97%E5%92%8C%E7%BB%84%E5%90%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 数学与算法系列之排列和组合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E8%AE%BA/06%20%E7%A6%BB%E6%95%A3%E4%B8%8E%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6%E4%B9%8B%E5%A6%82%E4%BD%95%E8%AE%A9%E9%94%99%E6%8E%92%E5%88%97%E4%B8%80%E6%AD%A5%E9%94%99%EF%BC%8C%E6%AD%A5%E6%AD%A5%E9%94%99%EF%BC%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 离散与组合数学之如何让错排列一步错，步步错！
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E8%AE%BA/07%20%E6%95%B0%E5%AD%A6%E4%B8%8E%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97%E4%B9%8B%E8%AE%A4%E8%AF%86%E6%A0%BC%E9%9B%B7%E7%A0%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 数学与算法系列之认识格雷码
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E8%AE%BA/08%20%E6%95%B0%E5%AD%A6%E4%B8%8E%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97%E4%B9%8B%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%E6%B3%95%E6%B1%82%E8%A7%A3%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 数学与算法系列之高斯消元法求解线性方程组
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E8%AE%BA/09%20%E6%95%B0%E5%AD%A6%E4%B8%8E%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97%E4%B9%8B%E7%89%9B%E9%A1%BF%E3%80%81%E4%BA%8C%E5%88%86%E8%BF%AD%E4%BB%A3%E6%B3%95%E6%B1%82%E8%A7%A3%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 数学与算法系列之牛顿、二分迭代法求解非线性方程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E8%AE%BA/10.%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E4%B8%8E%E6%89%A9%E5%B1%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10.欧几里得与扩展
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E8%AE%BA/11%20%E5%90%8C%E4%BD%99/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11 同余
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E8%AE%BA/12%20%E5%BF%AB%E9%80%9F%E5%B9%82/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12 快速幂
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E8%AE%BA/13%20%E5%A4%A7%E6%95%B0%E4%B9%98%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13 大数乘法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E8%AE%BA/14%20%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14 费马小定理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E8%AE%BA/15%20%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15 欧拉定理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E8%AE%BA/16%20%E4%B9%98%E6%B3%95%E9%80%86%E5%85%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16 乘法逆元
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E8%AE%BA/17%20%E8%A3%B4%E8%9C%80%E5%AE%9A%E7%90%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17 裴蜀定理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E8%AE%BA/18%20%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18 中国剩余定理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 前言
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 常见算法思想
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 常见算法思想">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 穷举算法思想
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 试探算法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 递推算法思想
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 递推算法思想">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.1 顺推算法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.2 逆推算法
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 递归算法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 分治思想
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 贪心算法思想
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+
+<h1 id="c">C++不知算法系列之集结基础算法思想</h1>
+<h2 id="1">1. 前言</h2>
+<p><code>数据结构</code>和<code>算法</code>是程序的 <code>2</code> 大基础结构，如果说<code>数据</code>是程序的汽油，<code>算法</code>则就是程序的发动机。</p>
+<p><strong>什么是数据结构？</strong></p>
+<p>指<code>数据</code>之间的逻辑关系以及在计算机中的存储方式，数据的存储方式会影响到获取数据的便利性。</p>
+<p>现实生活中，如果把春夏秋冬的衣物全部堆放在一起，当需要某一季节的衣服时，寻找起来是困难的。如果分门别类、有条理地存放，则寻找起来会方便很多。同理，编写程序时，如果对程序所依赖的数据有条理、易于查找的方式进行存储，则在处理数据时，可以提升程序的整体性能。</p>
+<p>数据结构准确说是一个空间管理概念，同样的数据使用不同的数据结构时，对程序会有空间度上的影响。</p>
+<p><strong>什么是算法？</strong></p>
+<p>算法是解决问题的思路或流程，算法与具体的计算机语言无关，但算法一定能通过计算机语言实现。</p>
+<p>理解算法，可以从 <code>2</code> 个角度：</p>
+<ul>
+<li><strong>广义角度：</strong> 算法是指处理数据时，使用的解决思路。只要能达到数据处理目的，任一解决思路都可认为是算法，也就是说程序中无处不算法。</li>
+<li><strong>狭义角度：</strong> 对各种解决问题的经验和思路进行总结、归纳，形成算法体系或算法思想。</li>
+</ul>
+<p><strong>算法与数据结构的关系？</strong></p>
+<p>算法不应该仅针对于特定的数据结构，应该针对特定类型的问题。算法是思路，数据结构是算法实施对象。设计优秀的数据结构对算法的性能会有质的提升。</p>
+<p><strong>算法的特性：</strong></p>
+<ul>
+<li><strong>有穷性</strong>：算法必须能在有限时间内完成。</li>
+<li><strong>确定性</strong>：对相同的输入必须得到相同的结果。</li>
+<li><strong>可行性</strong>：即算法应该可以通过具体的语言得以实现。</li>
+<li><strong>输入</strong>：一个算法可以有<code>0</code>个或多个输入。</li>
+<li><strong>输出</strong>：算法必须有结果，也就是必须有一个或多个输出。</li>
+</ul>
+<p><strong>算法的描述：</strong></p>
+<ul>
+<li><strong>自然语言</strong>。因受限于语言的岐义性，自然语言描述算法同样会出现如此问题。</li>
+<li><strong>流程图</strong>。使用标准的图形化语言描述，易于理解和交流。</li>
+<li><strong>使用计算机语言</strong>。算法的最终归缩。</li>
+</ul>
+<p><strong>算法性能分析：</strong></p>
+<p>可以使用<code>时间复杂度</code>和<code>空间复杂度</code>评价算法的性能高低。<code>2</code> 者均通过大<code>O</code>表示描述，大 <code>O</code> 时间复杂度实际上不具体表示真正的执行时间，而是表示代码执行时间随数据规模增长变化的趋势。所以也叫渐进时间复杂度，简称时间复杂度。</p>
+<p><strong>时间复杂度</strong>：指算法需要消耗的时间资源。使用大<code>O</code>法计算时间复杂度的原则：</p>
+<ul>
+<li>只关注循环执行次数最多的一段代码，省去最高阶项前面的常量、低阶、系数。</li>
+<li>如果运行时间是常数量级，则用常数<code>1</code>表示。</li>
+<li>加法法则：总复杂度等于量级最大的那段代码的复杂度。分析每一部分时间复杂度，取量级最大的作为整段代码复杂度。</li>
+<li>乘法法则：嵌套代码复杂度等于嵌套内外代码复杂度的乘积。</li>
+</ul>
+<p>常见时间复杂度：</p>
+<p><img alt="img" src="../../assets/images/0e4989400941510a4fc31b24e05f48e8.png" /></p>
+<p><strong>空间复杂度：</strong>空间复杂度也称渐进空间复杂度，表示算法的存储空间与数据规模之间的增长关系，<strong>算法在运行过程中临时占用存储空间大小的量度</strong>。</p>
+<p><strong>常见的空间复杂度：</strong></p>
+<ul>
+<li>常量空间：当算法的存储空间大小固定，和输入规模没有直接的关系时，空间复杂度记作<code>O(1)</code>。</li>
+<li>线性空间：当算法分配的空间是一个线性的集合（如数组），并且集合大小和输入规模<code>n</code>成正比时，空间复杂度记作<code>O(n)</code>。</li>
+<li>二维空间：当算法分配的空间是一个二维数组集合，并且集合的长度和宽度都与输入规模<code>n</code>成正比时，空间复杂度记作<code>O(n^2)</code></li>
+<li>递归空间：计算机在执行递归程序时，会专门分配一块内存，用来存储“方法调用栈”执行递归操作所需要的内存空间和递归的深度成正比。如果递归的深度是<code>n</code>，那么空间复杂度就是<code>O(n)</code>。纯粹的递归操作的空间复杂度也是线性的。</li>
+</ul>
+<h2 id="2">2. 常见算法思想</h2>
+<h3 id="21">2.1 穷举算法思想</h3>
+<p><code>穷举算法</code>也称为<code>枚举算法</code>或<code>暴力破解法</code>，是一种<code>原始算法</code>。</p>
+<p><strong>什么是<code>原始算法</code>?</strong></p>
+<p>要了解<code>原始算法</code>的概念，就需要理解计算机的思维模式。</p>
+<p>计算机本质是一台<code>无意识</code>、<code>无经验</code>、<code>无知识</code>积累的冰冷机器，它仅有基本的运算能力和判断能力。当然它还有一个人类无法比拟的强项，运算速度非常快。</p>
+<p><strong>人类思维和计算机思维的区别</strong></p>
+<p>比如，请找出数列<code>[1,2,3,4,5]</code>中哪 <code>2</code> 个数字相加等于 <code>5</code>。人类思维是直观性学习思维，可以直接给出答案，计算机不行。</p>
+<p>计算机采用的是<code>基本运算</code>加<code>判断</code>的方案。先把<code>1</code>和<code>2</code>相加然后判断，如果不是，继续 把<code>1</code>和 <code>3</code>相加再判断……</p>
+<p>这种思维我们称为<code>穷举思维</code>或<code>暴力思维</code>。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">nums</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w"> </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="p">)</span><span class="o">==</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="s">&quot;+&quot;</span><span class="o">&lt;&lt;</span><span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="s">&quot;=&quot;</span><span class="o">&lt;&lt;</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">   </span><span class="p">}</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">}</span>
+</code></pre></div>
+<p>当数列中的数字很少的时候，人类的思维有优势，当数据量很大的时候，计算机虽然采用的是笨拙的穷举思维，但是，因处理速度快，反而要远远快于人类计算出来。</p>
+<p>本质上讲，计算机是无思维的，或者说计算机只会<code>穷举</code>，所以说，算法的本质都是<code>引导性</code>的。</p>
+<blockquote>
+<p><strong>什么是引导性？</strong></p>
+<p>就是你问它，它摇头或点头，你根据它的点头或摇头，继续问，它继续点头或摇头，直到得到你想到的答案。</p>
+</blockquote>
+<p><strong>穷法算法的思想：在一个指定的数据范围之内，通过不停地判断直到查找到正确的答案。</strong></p>
+<p>现根据<code>穷举算法</code>的思路解决一个数学中常见的<code>猜数字</code>题目。</p>
+<p>如下图，每一个中文汉字表示一个数字，请找出每一个汉字所对应的数字。</p>
+<p><img alt="img" src="../../assets/images/8928fb0cee72e57da4365478db6c95ed.png" /></p>
+<p><strong>穷举流程：</strong></p>
+<ul>
+<li><strong>确定数字范围：</strong> 如果要让整个表达式有意义，则<code>我</code>和<code>程</code>字所对应的数字不能是 <code>0</code>。所以<code>我</code>和<code>程</code>字的数字范围应该是 <code>1~9</code>之间，其它的数字范围可以是 <code>0~9</code>之间。</li>
+<li><strong>初始每一个汉字所对应的数字，</strong> 然后套用表达式进行计算，如果计算结果符合要求，则宣布查找到，否则，更改每一个汉字所对应的数字。</li>
+</ul>
+<p><strong>编写实现：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cmath&gt;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1">// 为 我很爱编程 中的每一个汉字初始数字起始边界</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">wo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">hen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ai</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">bian</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">chen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w"> </span><span class="kt">int</span><span class="w">  </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">num1</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">wo</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">wo</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">wo</span><span class="o">++</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">hen</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">hen</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">hen</span><span class="o">++</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">   </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">ai</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">ai</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">ai</span><span class="o">++</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">bian</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">bian</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">bian</span><span class="o">++</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">     </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">chen</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">chen</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">chen</span><span class="o">++</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">      </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">chen</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">chen</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">chen</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">chen</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">chen</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">chen</span><span class="p">;</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">      </span><span class="n">num1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wo</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">hen</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ai</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">bian</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">chen</span><span class="p">;</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">      </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">num1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">wo</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">       </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">wo</span><span class="o">&lt;&lt;</span><span class="n">hen</span><span class="o">&lt;&lt;</span><span class="n">ai</span><span class="o">&lt;&lt;</span><span class="n">bian</span><span class="o">&lt;&lt;</span><span class="n">chen</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">       </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">count</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">       </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">     </span><span class="p">}</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">   </span><span class="p">}</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="p">}</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="c1">//输出结果：79635</span>
+</code></pre></div>
+<p>上述代码为典型的<code>穷举算法</code>，代码中添加了一个计数器，用来统计最终计算多少次，仅为了观察。</p>
+<p><strong>穷举算法的结构有一个较大的特点，往往会出现循环语法结构层层嵌套。</strong></p>
+<p>在此基础上思考，是否存在优化方案，可以减少循环次数。</p>
+<p>题目中还有一个隐式条件，<code>我很爱编程</code>中的每一个汉字所对应的数字不能相同。可以把这条件加入到上述代码中。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cmath&gt;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1">// 为 我很爱编程 中的每一个汉字初始数字起始边界</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">wo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">hen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ai</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">bian</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">chen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w"> </span><span class="kt">int</span><span class="w">  </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">num1</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">wo</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">wo</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">wo</span><span class="o">++</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">hen</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">hen</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">hen</span><span class="o">++</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">hen</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">wo</span><span class="p">)</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="k">continue</span><span class="p">;</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">ai</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">ai</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">ai</span><span class="o">++</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">     </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ai</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">hen</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">ai</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">wo</span><span class="p">)</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">      </span><span class="k">continue</span><span class="p">;</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">bian</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">bian</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">bian</span><span class="o">++</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">       </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bian</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ai</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">bian</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">hen</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">bian</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">wo</span><span class="p">)</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">        </span><span class="k">continue</span><span class="p">;</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">chen</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">chen</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">chen</span><span class="o">++</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">chen</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">bian</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">chen</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ai</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">chen</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">hen</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">chen</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">wo</span><span class="p">)</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">          </span><span class="k">continue</span><span class="p">;</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">          </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">chen</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">chen</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">chen</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">chen</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">chen</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">                       </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">chen</span><span class="p">;</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">         </span><span class="n">num1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wo</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">hen</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ai</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">bian</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">chen</span><span class="p">;</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="w">         </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">num1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">wo</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="w">          </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">wo</span><span class="o">&lt;&lt;</span><span class="n">hen</span><span class="o">&lt;&lt;</span><span class="n">ai</span><span class="o">&lt;&lt;</span><span class="n">bian</span><span class="o">&lt;&lt;</span><span class="n">chen</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="w">          </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">count</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="w">          </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a><span class="w">         </span><span class="p">}</span>
+<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a><span class="p">}</span>
+</code></pre></div>
+<p>从 <code>2</code> 次代码的运行结果可知，循环次数减少了 <code>43763</code>次。虽然减少了循环次数，因没有从本质上改变算法结构，所以说还是最原始的<code>穷举算法</code>思路。</p>
+<h3 id="22">2.2  试探算法</h3>
+<p>试探算法本质是穷举算法，试探表现在，问题中没有明确的求解范围，需要通过试探方式确定范围。</p>
+<p>如下面的问题描述：</p>
+<p><code>A、B、C、D、E</code>五个人在某天夜里合伙去捕鱼，到第二天凌晨时都疲惫不堪，于是各自找地方睡觉。日上三杆，<code>A</code>第一个醒来，他将鱼分为五份，把多余的一条鱼扔掉，拿走自己的一份。<code>B</code>第二个醒来，也将鱼分为五份，把多余的一条鱼扔掉，保持走自己的一份。<code>C、D、E</code>依次醒来，也按同样的方法拿走鱼。问他们合伙至少捕了多少条鱼？</p>
+<p>问题分析：</p>
+<ul>
+<li>假设一共捕获了 <code>n</code> 条鱼。除了可以确定 <code>n</code> 一定是正整数外， 其范围是不知的。但是，根据问题描述可知  <code>n-1</code>是 <code>5</code> 的倍数。这是本题的基础过滤条件。</li>
+<li><code>A</code>拿走鱼后，<code>B</code>所看到的鱼的数量应该是 <code>n=(n-1)-(n-1)/5</code>。 更新 <code>n</code>后，<code>n-1</code>的值同样是 <code>5</code> 的倍数。</li>
+<li>如此一至到 <code>E</code>，<code>n</code>的值还是满足 <code>n-1</code>是 <code>5</code> 的倍数。也就是一个数字经过 <code>5</code> 次分割时，减一后都是 <code>5</code> 的倍数。</li>
+<li>可以根据知识思维，判断出 <code>n</code> 最小值是 <code>6</code>。穷举时，从 <code>6</code>开始一至向上查找，向上的界限是多少，这里就需要试探。</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="c1">//初始试探的上限为 1000</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">upNum</span><span class="o">=</span><span class="mi">1000</span><span class="p">;</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="c1">//是否继续试探</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">isCon</span><span class="o">=</span><span class="nb">true</span><span class="p">;</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w"> </span><span class="k">while</span><span class="p">(</span><span class="n">isCon</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="c1">//试探的下限从 6 开始</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">6</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">upNum</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="o">=</span><span class="n">i</span><span class="p">;</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">             </span><span class="c1">//检查 n 是否经过 5 次分割后数字还是满足要求</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">   </span><span class="k">for</span><span class="p">(;</span><span class="w"> </span><span class="n">j</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w">  </span><span class="p">(</span><span class="n">n</span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="o">==</span><span class="mi">0</span><span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">                      </span><span class="c1">//分</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">     </span><span class="n">n</span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">     </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">   </span><span class="p">}</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">   </span><span class="k">if</span><span class="p">(</span><span class="n">j</span><span class="o">==</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">                 </span><span class="c1">// n 中的数字满足问题描述</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">    </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="p">;</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">                  </span><span class="c1">//不需要再继续试探</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">    </span><span class="n">isCon</span><span class="o">=</span><span class="nb">false</span><span class="p">;</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">    </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="w">   </span><span class="p">}</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="w">        </span><span class="c1">//试探的步长值为 1000 </span>
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="w">  </span><span class="n">upNum</span><span class="o">+=</span><span class="mi">1000</span><span class="p">;</span>
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a><span class="p">}</span>
+</code></pre></div>
+<p>输出结果：</p>
+<p><img alt="img" src="../../assets/images/c646f31cdd28e6d2e85c6a2015761cc7.png" /></p>
+<p>会不会出现无限试探，如果出现这个问题只有 <code>2</code> 种可能：</p>
+<ul>
+<li>算法设计有问题。</li>
+<li>问题描述本身无解。</li>
+</ul>
+<h3 id="23">2.3 递推算法思想</h3>
+<p>计算机的思维本质是穷举。但是，人的思维是知识性、探索性思维，可以在解决问题时，发现问题中的规律，并通过计算机语言告诉计算机，这样可以在计算时绕过一些不必要的计算。</p>
+<blockquote>
+<p>研究算法的本质就是通过发现数据间的规律、减少穷举的次数。</p>
+</blockquote>
+<p><strong>什么是递推算法？</strong></p>
+<p><strong>简单讲，不断地利用已知信息推导出最终结果。显然，已知信息和最终结果数据之间一定要存在某些内在联系或规律。</strong></p>
+<p>递推算法又分为<code>顺推法</code>和<code>逆推法</code>。</p>
+<ul>
+<li><strong>顺推法：</strong>从已知条件出发，逐步推算出所需要的结果。</li>
+<li><strong>逆推法：</strong>从已知的结果出发，用迭代式逐步推算出问题开始，逆推法的本质就是逆向思维。</li>
+</ul>
+<p>如下通过案例分别介绍<code>顺推法</code>和<code>逆推法</code>。</p>
+<h4 id="231">2.3.1 顺推算法</h4>
+<p><strong>问题描述：斐波拉契数列</strong></p>
+<p>数列<code>[1,1,2,3,5,8,13,21,34,55,……]</code>就是一个符合<code>斐波拉契</code>关系的数列。</p>
+<p>斐波拉契数列特点：</p>
+<ul>
+<li>数列中的第 <code>1</code>、<code>2</code> 位置的数字是 <code>1</code> ，这是<strong>已知信息</strong>。</li>
+<li>从第 <code>3</code> 个位置开始，其值为前面 <code>2</code> 个数字相加的结果。 知道了第 <code>3</code> 个位置的值，也将知道第 <code>4</code> 个位值，依此类推，可以求解出任何位置的数字。</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">num1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">num2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">num3</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">12</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span><span class="c1">// 推导出第 3 个位置的数字</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="n">num3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">num2</span><span class="p">;</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">  </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">num3</span><span class="o">&lt;&lt;</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">;</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">  </span><span class="c1">// 为计算后续数据做准备</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">  </span><span class="n">num1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num2</span><span class="p">;</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">  </span><span class="n">num2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num3</span><span class="p">;</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="p">}</span>
+</code></pre></div>
+<p>求解<code>斐波拉契</code>数列的方案就是典型的<code>顺推思维</code>。</p>
+<p>如有数列<code>[1,4,10,22,46……]</code>，分析数列中前面几个数字的规律，输出数列的前 <code>20</code> 个数字。分析后可发现第 <code>1</code> 个位置的数字 <code>1</code>是已知信息，从第 <code>2</code> 个位置开始，其值和前一个值符合<code>2*x+2</code>的线性规律，所以也可以递推算法求解。</p>
+<h4 id="232">2.3.2 逆推算法</h4>
+<p>下面通几个案例讲解逆推算法的基本思想。</p>
+<p><strong>猴子吃桃问题：</strong></p>
+<p>有一只猴子，第 <code>1</code> 天摘了若干桃子，吃了桃子的一半后又吃了一个，第 <code>2</code> 天也是吃了桃子一半后再吃了一个……如此类推，到第 <code>10</code> 天时，还剩余 <code>1</code> 只桃子。请问猴子第 <code>1</code> 天摘了多少只桃子。</p>
+<p><strong>分析：</strong></p>
+<ul>
+<li>可以使用<code>逆推算法</code>，也就是我们经常讲的逆向思维解决猴子吃桃问题。</li>
+<li>第 <code>10</code> 天还剩余 <code>1</code> 只桃子，可以看成是<strong>已知信息</strong>，已知信息属于结果信息。</li>
+<li>求解第 <code>1</code> 天的桃子总量，需求解的是开始问题。</li>
+</ul>
+<p><strong>找出数据之间的关系：</strong></p>
+<ul>
+<li>第 <code>10</code> 有 <code>1</code> 个桃子，第 <code>10</code> 天的这 <code>1</code> 个桃子是取第 <code>9</code> 天桃子的一半减一个剩余的。</li>
+<li>前一天的桃子除以 <code>2</code> 减 <code>1</code> 等于后 <code>1</code> 天的桃子，或者说，前 <code>1</code> 天的桃子等于（后 <code>1</code> 天的桃子加 <code>1</code>）乘以 <code>2</code>。</li>
+</ul>
+<p>有了数列之间的关系，编码就很容易了。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1">// 第 10 天的桃子数，也是已知条件</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w"> </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">9</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="c1">// 向第 1 天推进</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w"> </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">num</span><span class="p">;</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>类似的问题还有很多：</strong>如猜年龄问题。</p>
+<p>有 <code>5</code> 个小孩子，问第 <code>1</code> 个小孩子的年龄是多少？他说他是第 <code>2</code> 个小孩子的年龄加 <code>2</code> 岁。</p>
+<p>问第 <code>2</code> 个小孩子的年龄时，他说他是第<code>3</code>个小孩子的年龄加<code>2</code>岁。</p>
+<p>问第<code>3</code>个小孩子的年龄时，他说他是第 <code>4</code>个小孩子年龄加<code>2</code> 岁。</p>
+<p>问第 <code>4</code> 个小孩子年龄时，他说他是第 <code>5</code> 个小孩子的年龄加<code>2</code> 岁。</p>
+<p>问第 <code>5</code>个小孩子的年龄时，他说他的年龄是<code>6</code>岁，求解每一个小孩子的年龄。</p>
+<p>这个问题也是典型的逆推问题。第 <code>5</code> 个小孩子的年龄是已知的，而且知道与前一个小孩子年龄的关系<strong>前一个小孩子的年龄=后一个小孩子年龄+2</strong>。满足数学上的线性函数关系。</p>
+<p>一层层回推就能计算出第 <code>1</code> 个小孩子的年龄是：<code>14</code>岁。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span><span class="n">i</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">--</span><span class="p">){</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="p">}</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">age</span><span class="p">;</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="p">}</span>
+</code></pre></div>
+<p>上述问题虽然简单，但能很好地描述递推算法的思想。</p>
+<h3 id="24">2.4 递归算法</h3>
+<p>具体解决问题时，总是一种算法借鉴另一种算法，或一个算法中融入另一种算法。算法之间互相交织、迭代而诞生出新的算法。</p>
+<p>前文所说，<code>穷举</code>才是计算机的本质，其它算法无非是通过分析问题、发现规律、减少算法的实施过程中的次数。</p>
+<p><strong>什么是递归算法？</strong></p>
+<p>通过不停调用<code>函数</code>本身从而达到解决问题的目地。</p>
+<p>现实生活中经常会遇到的问题，我要找到小王的电话号码，可以帮助理解递归过程。</p>
+<p>想知道朋友<code>小王</code>的电话号码，先找到朋友<code>小李</code>，<code>小李</code>说他也没有，但是他会帮问问<code>小张</code>,<code>小张</code>说他也没有，他会问问<code>小胡</code>，小胡说他知道。</p>
+<p>这里面包括 <code>2</code> 条线。</p>
+<ul>
+<li><strong>递进线：</strong><code>我</code>-（问）-&gt;<code>小李</code>-(问)-&gt;<code>小张</code>-（问）-&gt;<code>小胡</code>(结果)。</li>
+<li><strong>回溯线：</strong>小胡-(结果)-&gt;小张-(结果)-&gt;小李-(结果)-&gt;我。</li>
+</ul>
+<p>递归算法的特点：</p>
+<ul>
+<li>通过<code>递进线</code>寻求帮助。递推线的最终必须有能得到帮助的时候（如最后小胡知道小王的电话号码），否则会成为死结。表现在编码实施过程中需要有调用终止的时候。</li>
+<li>通过<code>回溯线</code>求解出原始问题。</li>
+</ul>
+<p>前面的<code>斐波拉契数列</code>也可以使用递归算法解决。比如说，想知道在第 <code>12</code> 位置的数字是多少。</p>
+<ul>
+<li><strong>递进线：</strong>求数列第 <code>12</code>位置的值，求助于第 <code>11</code>位置的值，然后再求助于第 <code>10</code>的值， 一至求助到第 <code>1</code>,<code>2</code>位置。</li>
+<li><strong>回溯线：</strong>通过回溯求解出原始问题。</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">fb</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">pos</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pos</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span><span class="c1">// 求助的终点</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w"> </span><span class="c1">// 求助</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">fb</span><span class="p">(</span><span class="n">pos</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">fb</span><span class="p">(</span><span class="n">pos</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="p">}</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fb</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w"> </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">res</span><span class="p">;</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="p">}</span>
+</code></pre></div>
+<p>求解年龄的问题也可以使用递归算法实现。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">get_age</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">number</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">get_age</span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>递归算法可以用于 <code>2</code> 类问题的求解：</p>
+<ul>
+<li>替代循环语法结构。一个函数就是一个逻辑实现的封装，反复调用自己，则可认为重复执行相同逻辑。</li>
+</ul>
+<blockquote>
+<p>递归比循环的性能低下。能使用循坏解决的问题就不要使用递归。</p>
+</blockquote>
+<ul>
+<li>一个看似复杂的问题，其实最终答案归结到一个小问题上，如求阶乘、斐波拉契之类的问题。</li>
+</ul>
+<blockquote>
+<p>递归更多应用于此类型问题的求解。</p>
+</blockquote>
+<p><code>斐波拉契</code>和<code>求年龄</code>的问题即可以使用前文的<code>递推算法思想</code>实现，也可以使用<code>递归</code>算法实现。说明：</p>
+<ul>
+<li>
+<p>解决一个问题不能拘泥一种方案。</p>
+</li>
+<li>
+<p>算法与算法之间会有重叠、借鉴、融合之处。</p>
+</li>
+</ul>
+<blockquote>
+<p>任何语言都提供有递归调用方式。可以利用递归的特点对数据进行处理。</p>
+</blockquote>
+<p>递归的底层依赖于栈数据结构，递归的具体细节本文不做太多讲解，本文意在概括常见算法。</p>
+<p><strong>在算法理论中，回溯本身就是一种算法方案，可独立解决很多实际问题。</strong></p>
+<p>回溯法是计算机解题中常用的算法，很多问题无法根据某种确定的计算法则来求解，但可以利用回溯的技术求解。回溯法是搜索算法中的一种控制策略。</p>
+<p><strong>它的基本思想是：</strong></p>
+<p>从问题的某一种状态（一般是默认的初始状态）出发，搜索从这种状态出发所能达到的所有“状态”，当一条路走到“尽头”的时候，先退几步，接着从另一种可能的“状态”出发，继续搜索，直到所有的“路径”都尝试过。</p>
+<p>回溯思路在我们在现实生活中无处不在，对此体现的较具体的就是下棋，还有一个典型的应用就是走迷宫。</p>
+<p><strong>因回溯已经内置在递归算法中，一般需要使用回溯解决的问题，都会用到递归。</strong></p>
+<h3 id="25">2.5 分治思想</h3>
+<p>将一个计算复杂的问题分为若干子问题来进行求解，然后合并各个小问题得到原始问题的最终求解。</p>
+<p><strong>分治算法的特点：</strong></p>
+<ul>
+<li>原始问题和分解出来的子问题的<strong>问题形式相同，只是数据规模不相同</strong>，也就是说无论是原始问题，还是分解后的子问题，都在解决同一个问题。</li>
+<li>分解出来的子问题具有完全独立性，子问题是原始问题的缩影。</li>
+<li>使用分治算法时，不一定都需要合并子问题。如二分搜索算法，是分治算法的实现，但不需要合归。</li>
+</ul>
+<p>分治算法实时有 <code>2</code> 个过程：</p>
+<ul>
+<li><strong>分治：</strong>原始问题能分解成若干较小的相同问题，子问题因规模较小，更容易求解到答案。</li>
+<li><strong>合并：</strong>合并子问题得到原始问题的求解。</li>
+</ul>
+<p>因子问题与原始问题相同，一般会使用递归算法多次迭代。</p>
+<p>如<code>二分查找</code>以及<code>快速排序</code>，都是分治的思想的应用。</p>
+<p><strong>二分的迭代实现：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="c1">//二分查找算法</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">binary_find</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">nums</span><span class="p">[],</span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w"> </span><span class="c1">// 初始左指针</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">l_idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w"> </span><span class="c1">// 初始在指针</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">r_ldx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span><span class="o">/</span><span class="mi">4</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">l_idx</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r_ldx</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">  </span><span class="c1">// 计算出中间位置</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">mid_pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">r_ldx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">l_idx</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="c1">// 2</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">  </span><span class="c1">// 计算中间位置的值</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">mid_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">mid_pos</span><span class="p">];</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">  </span><span class="c1">// 与关键字比较</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mid_val</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">key</span><span class="p">)</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">   </span><span class="c1">// 出口一：比较相等，有此关键字，返回关键字所在位置</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">mid_pos</span><span class="p">;</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mid_val</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">key</span><span class="p">)</span>
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">   </span><span class="c1">// 说明查找范围应该缩少在原数的左边</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">   </span><span class="n">r_ldx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid_pos</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="w">  </span><span class="k">else</span>
+<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="w">   </span><span class="n">l_idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid_pos</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="w"> </span><span class="c1">// 出口二：没有查找到给定关键字</span>
+<a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a><span class="p">}</span>
+<a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a><span class="w"> </span><span class="kt">int</span><span class="w">   </span><span class="n">nums</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">};</span>
+<a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binary_find</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">);</span>
+<a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a><span class="w"> </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">pos</span><span class="p">;</span>
+<a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-9-33" name="__codelineno-9-33" href="#__codelineno-9-33"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>二分查找的递归实现：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1">//递归实现二分查找</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">binary_find_dg</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">nums</span><span class="p">[],</span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">l_idx</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">r_ldx</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">l_idx</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">r_ldx</span><span class="p">)</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">  </span><span class="c1">// 出口一：没有查找到给定关键字</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w"> </span><span class="c1">// 计算出中间位置</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mid_pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">r_ldx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">l_idx</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="c1">// 2</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w"> </span><span class="c1">// 计算中间位置的值</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mid_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">mid_pos</span><span class="p">];</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w"> </span><span class="c1">// 与关键字比较</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mid_val</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">key</span><span class="p">)</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">  </span><span class="c1">// 出口二：比较相等，有此关键字，返回关键字所在位置</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">mid_pos</span><span class="p">;</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mid_val</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">key</span><span class="p">)</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">  </span><span class="c1">// 说明查找范围应该缩少在原数的左边</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">  </span><span class="n">r_ldx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid_pos</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="w"> </span><span class="k">else</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="w">  </span><span class="n">l_idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid_pos</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">binary_find_dg</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">l_idx</span><span class="p">,</span><span class="w"> </span><span class="n">r_ldx</span><span class="p">);</span>
+<a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="p">}</span>
+<a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a><span class="w"> </span><span class="kt">int</span><span class="w">   </span><span class="n">nums</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">};</span>
+<a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a><span class="w"> </span><span class="kt">int</span><span class="w">   </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a><span class="w"> </span><span class="kt">int</span><span class="w">   </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binary_find_dg</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">);</span>
+<a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a><span class="w"> </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">pos</span><span class="p">;</span>
+<a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a><span class="p">}</span>
+</code></pre></div>
+<p>本文意在总结算法，快速排序的代码就不上了。</p>
+<h3 id="26">2.6 贪心算法思想</h3>
+<p>贪心算法总是做出在当前看来最好的选择，并从不整体最优考虑，只是局部最优秀。虽然贪心算法总是从局部最优求解，但有时也有可能让最终求解也是最优的。</p>
+<p><strong>贪心算法的特点：</strong></p>
+<ul>
+<li>不能保证最后的解是最优的。</li>
+<li><strong>不能用来求最大或最小解问题。</strong></li>
+<li>只能求满足某些约束条件的可行解。</li>
+</ul>
+<p><strong>贪婪算法最典型的案例：找零钱。</strong></p>
+<p><strong>问题描述：</strong>在超市购物时，收银员找零钱时，如何使找回零钱的纸币数最少。</p>
+<p>贪心算法的思路是从最大面值的币种开始，按递减的顺序考虑各种币种。也就是先尽量用大面值的币种，当不足大面值币种的金额时才去考虑下一种较小面值的币种。</p>
+<blockquote>
+<p>这里的贪心表现在<strong>最大可能使用最大金额的币种</strong>。显然，贪心算法在此问题上是可行的。</p>
+</blockquote>
+<p><strong>编码实现：</strong></p>
+<p>假设人民币有 <code>100</code>、<code>50</code>、<code>20</code>、<code>10</code>、<code>5</code>、<code>2</code>、<code>1</code>、<code>0.5</code>、<code>0.1</code>几种面额，且数量无限，找零钱时，请尽量实现找给顾客的零钱所用到的币种的总数量最少。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;map&gt;</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="c1">// 币种</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="kt">double</span><span class="w"> </span><span class="n">bi_zhongs</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> </span><span class="mf">0.1</span><span class="p">};</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="c1">// 记录最终结果</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="n">map</span><span class="o">&lt;</span><span class="kt">double</span><span class="w"> </span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">resMap</span><span class="p">;</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="c1">//需要找的零钱</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="kt">double</span><span class="w"> </span><span class="n">lq_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">68.9</span><span class="p">;</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="c1">// 为了便于计算，扩大100倍</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="kt">int</span><span class="w"> </span><span class="n">lq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lq_</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lq</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="w"> </span><span class="n">bi_zhongs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">  </span><span class="c1">// 计算张数</span>
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="w">  </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lq</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">bi_zhongs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">  </span><span class="n">resMap</span><span class="p">[</span><span class="n">bi_zhongs</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="n">count</span><span class="p">);</span>
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="w">  </span><span class="c1">// 余额</span>
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="w">  </span><span class="n">lq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lq</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">(</span><span class="w"> </span><span class="n">bi_zhongs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="p">));</span>
+<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lq</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="w">  </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a><span class="c1">// 输出每一种币种的数量</span>
+<a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a><span class="n">map</span><span class="o">&lt;</span><span class="kt">double</span><span class="w"> </span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">iterator</span><span class="w"> </span><span class="n">begin</span><span class="o">=</span><span class="w"> </span><span class="n">resMap</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+<a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a><span class="n">map</span><span class="o">&lt;</span><span class="kt">double</span><span class="w"> </span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">iterator</span><span class="w"> </span><span class="n">end</span><span class="o">=</span><span class="w"> </span><span class="n">resMap</span><span class="p">.</span><span class="n">end</span><span class="p">();</span>
+<a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a><span class="k">while</span><span class="p">(</span><span class="n">begin</span><span class="o">!=</span><span class="n">end</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a><span class="w"> </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">begin</span><span class="o">-&gt;</span><span class="n">first</span><span class="o">&lt;&lt;</span><span class="s">&quot;:&quot;</span><span class="o">&lt;&lt;</span><span class="n">begin</span><span class="o">-&gt;</span><span class="n">second</span><span class="o">&lt;&lt;</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">;</span>
+<a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a><span class="w"> </span><span class="n">begin</span><span class="o">++</span><span class="p">;</span>
+<a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a><span class="p">}</span>
+<a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a><span class="p">}</span>
+<a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a><span class="c1">//输出结果：</span>
+<a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a><span class="c1">//{50: 1, 10: 1, 5: 1, 2: 1, 1: 1, 0.5: 1, 0.2: 2}</span>
+</code></pre></div>
+<h2 id="3">3. 总结</h2>
+<p>本文介绍了常见的几种基础算法 ，除些之外，还有更多算法思想。如动态规划、摸拟思想……限于篇幅原因，本文中即不一一罗列，也不深研算法内在细节。</p>
+<p>后续会为某些经典算法单独开文，详细介绍其算法的微妙之处。万变不离其宗，研究算法时即要做到能对各种算法独立分析，又要做到融合贯通。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+  
+
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Your Name
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.highlight", "search.suggest", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
