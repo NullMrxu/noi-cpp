@@ -462,23 +462,6 @@ int main(int argc, char** argv) {
 本文讲解了如何使用｀Floyd｀算法求解次最短路径.
 
 
-
-![img](https://mmbiz.qlogo.cn/mmbiz_jpg/NlsHibO0z0epEjZpMqq4MFoh00sRb9rRYS0bQiapnicGp9g6icicFa4YtL79IEoJguQPdMic8iaDljEf9FChncOOBvGmQ/0?wx_fmt=jpeg)
-
-一枚大果壳
-
-![赞赏二维码](https://mp.weixin.qq.com/s?__biz=MzU2NDgzNjgzNw==&mid=2247489013&idx=1&sn=ebacbcefc0433a0b6a568ade4ad0f9d7&chksm=fd979a14e5eec533401c75dfdbebfb93e151d405fdf53e9a97e7a5ca1fdf9b18893b90bee733&scene=126&sessionid=1729004113&subscene=7&clicktime=1729006138&enterid=1729006138&key=daf9bdc5abc4e8d0e5c277bdd42c982d66cb9e265c4da5205f2783f379322434031fa8bcd69cfddd8cf9b5336bfabf58c971411de004307fe4d0bbf8004fc6f2dd915d82993bb1801d8a27a733bdb5c8967f17fd990572b7d61cee60f789011eaafeb7ca93fd0d5328a4c290ab064fada4e9cc4c06bca55b7fbf839688e97eaa&ascene=0&uin=NjUxMzM2MTA4&devicetype=Windows+10+x64&version=63090c11&lang=zh_CN&countrycode=CN&exportkey=n_ChQIAhIQAtAiWYEc3yKu5yepzVPmjhLmAQIE97dBBAEAAAAAACTJOlEJmzcAAAAOpnltbLcz9gKNyK89dVj0oTSwl93LfrSFRhfBPiVnlctE%2B%2BlVNA17Ol%2FY7SFzKCR8rS7Pd3Y%2BEcMqd9JHuhCic4jqQmkcmHSSsV3jE8IFbMKMp2h3fnw72PaejBFXEC519L9SxJPMJJi19x4EPw%2BjMERi6xKHuASmQI0RQPPdKrF%2FCo1R47gUNbg67cwQI5FYK6qejxjGgnjNFORId9UMzLAZXBSI%2BVBXXnc7piN8Wv7YeGIUFphVIN4OpMJiFdpZXhKnv0zSzievKlzXfoNO&acctmode=0&pass_ticket=RXUYU%2FXEjI4dk3JLwjz8WfyBsi7MqRHy14kYMD9sZjY%2FVE1xAVZMKd3%2F3Dm98zrG&wx_header=1&fasttmpl_type=0&fasttmpl_fullversion=7428020-zh_CN-zip&fasttmpl_flag=1)[喜欢作者](javascript:;)
-
-阅读 158
-
-
-
-<iframe src="https://wxa.wxs.qq.com/tmpl/kx/base_tmpl.html" class="iframe_ad_container iframe_adv_ad_container" style="-webkit-tap-highlight-color: transparent; margin: 0px; padding: 0px; outline: 0px; width: 677px; height: 0px; border: none; box-sizing: border-box; display: block; left: 0px;"></iframe>
-
-![img](../assets/images/ae50caacbf17a8486e9cb1caa8b9c71e.png)
-
-编程驿站
-
 2242
 
 [发消息](javascript:;)
